@@ -140,63 +140,63 @@ let projects = [
 		uuid:"/makerlab.com/projects/whereis",
 		content:"Disjecta Social Lifelines",
 		tags:"place, social",
-		link:"https://www.oregoncontemporary.org/immaterialized",
+		href:"https://www.oregoncontemporary.org/immaterialized",
 	},
 
 	{
 		uuid:"/makerlab.com/projects/ImageWiki",
 		content:"Visual Search Tool",
 		tags:"image, pechakucha",
-		link:"https://vimeo.com/2818525"
+		href:"https://vimeo.com/2818525"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/wherecamp",
 		content:"Know your place!",
 		tags:"place, social",
-		link:"https://wherecamp.org"
+		href:"https://wherecamp.org"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Luminate",
 		content:"Interactive Augmented Reality Drawing Program",
 		tags:"drawing, ar",
-		link:"https://github.com/makerlab/luminate"
+		href:"https://github.com/makerlab/luminate"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/LightSuit",
 		content:"Burning Man Wearable Art",
 		tags:"play, hardware",
-		link:"https://github.com/makerlab/lightsuit"
+		href:"https://github.com/makerlab/lightsuit"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Zero Theorem",
 		content:"The Zero Theorem movie for Terry Gilliam",
 		tags:"movie, tools",
-		link:"https://www.imdb.com/title/tt2333804/"
+		href:"https://www.imdb.com/title/tt2333804/"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/LifeCards",
 		content:"Data driven Layout Engine",
 		tags:"design, data",
-		link:"https://github.com/makerlab/lifecards"
+		href:"https://github.com/makerlab/lifecards"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/HumanScale",
 		content:"Design thinking for human scale architecture",
 		tags:"design, philosophy",
-		link:"https://human.scale"
+		href:"https://human.scale"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Lemonopoly",
 		content:"Place based Game and winner of the Zero1 Arts Grant",
 		tags:"game, place, 🍋",
-		link:"https://lemonopoly.org"
+		href:"https://lemonopoly.org"
 	},
 
 
@@ -204,42 +204,42 @@ let projects = [
 		uuid:"/makerlab.com/projects/Sugar",
 		content:"Real time place based game",
 		tags:"game, place",
-		link:"https://sugarhero.world"
+		href:"https://sugarhero.world"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/InsideMaps",
 		content:"3d reconstruction of modern interiors",
 		tags:"tool, 3d",
-		link:"https://insidemaps.com"
+		href:"https://insidemaps.com"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Orbital",
 		content:"Agent based cloud computation engine",
 		tags:"tool, sim",
-		link:"https://orbital.foundation"
+		href:"https://orbital.foundation"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Simulate World",
 		content:"Simulating the world",
 		tags:"philosophy",
-		link:"https://simulate.world"
+		href:"https://simulate.world"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/StarryBot",
 		content:"Token gated discord bot",
 		tags:"crypto",
-		link:"https://starrybot.xyz"
+		href:"https://starrybot.xyz"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/FutureOf",
 		content:"A Fun Pandemic Conference Series",
 		tags:"social",
-		link:"https://future-of.web.app"
+		href:"https://future-of.web.app"
 	},
 
 ]
