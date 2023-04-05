@@ -6,7 +6,7 @@
 let logo = {
 	kind:"logo",
 	style:"multicolor center",
-	content:"makerlab",
+	content:"m",
 	link:"/"
 }
 
@@ -128,7 +128,7 @@ let projects = [
 		stylize: {
 			display: 'flex',
 			width: '100%',
-			maxWidth:"1000px",
+			maxWidth:"1200px",
 			justifyContent:"center",
 			flexWrap:"wrap",
 		},
@@ -139,20 +139,15 @@ let projects = [
 	{
 		uuid:"/makerlab.com/projects/whereis",
 		content:"Disjecta Social Lifelines",
-		link:"https://web.archive.org/web/20201101013353/http://makerlab.com",
-		tags:"place, social"
+		tags:"place, social",
+		link:"https://www.oregoncontemporary.org/immaterialized",
 	},
 
 	{
 		uuid:"/makerlab.com/projects/ImageWiki",
-		content:"Augmented Reality Hyperlinks",
-		tags:"image, pechakucha"
-	},
-
-	{
-		uuid:"/makerlab.com/projects/Real Time Broker",
-		content:"Real time place based brokerage",
-		tags:"tool, place",
+		content:"Visual Search Tool",
+		tags:"image, pechakucha",
+		link:"https://vimeo.com/2818525"
 	},
 
 	{
@@ -165,37 +160,43 @@ let projects = [
 	{
 		uuid:"/makerlab.com/projects/Luminate",
 		content:"Interactive Augmented Reality Drawing Program",
-		tags:"drawing, ar"
+		tags:"drawing, ar",
+		link:"https://github.com/makerlab/luminate"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/LightSuit",
 		content:"Burning Man Wearable Art",
 		tags:"play, hardware",
+		link:"https://github.com/makerlab/lightsuit"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Zero Theorem",
 		content:"The Zero Theorem movie for Terry Gilliam",
-		tags:"movie, tools"
+		tags:"movie, tools",
+		link:"https://www.imdb.com/title/tt2333804/"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/LifeCards",
 		content:"Data driven Layout Engine",
-		tags:"design, data"
+		tags:"design, data",
+		link:"https://github.com/makerlab/lifecards"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/HumanScale",
 		content:"Design thinking for human scale architecture",
-		tags:"design, philosophy"
+		tags:"design, philosophy",
+		link:"https://human.scale"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Lemonopoly",
 		content:"Place based Game and winner of the Zero1 Arts Grant",
-		tags:"game, place, 🍋"
+		tags:"game, place, 🍋",
+		link:"https://lemonopoly.org"
 	},
 
 
@@ -203,24 +204,42 @@ let projects = [
 		uuid:"/makerlab.com/projects/Sugar",
 		content:"Real time place based game",
 		tags:"game, place",
+		link:"https://sugarhero.world"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/InsideMaps",
 		content:"3d reconstruction of modern interiors",
-		tags:"tool, 3d"
+		tags:"tool, 3d",
+		link:"https://insidemaps.com"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Orbital",
 		content:"Agent based cloud computation engine",
-		tags:"tool, sim"
+		tags:"tool, sim",
+		link:"https://orbital.foundation"
 	},
 
 	{
 		uuid:"/makerlab.com/projects/Simulate World",
 		content:"Simulating the world",
-		tags:"philosophy"
+		tags:"philosophy",
+		link:"https://simulate.world"
+	},
+
+	{
+		uuid:"/makerlab.com/projects/StarryBot",
+		content:"Token gated discord bot",
+		tags:"crypto",
+		link:"https://starrybot.xyz"
+	},
+
+	{
+		uuid:"/makerlab.com/projects/FutureOf",
+		content:"A Fun Pandemic Conference Series",
+		tags:"social",
+		link:"https://future-of.web.app"
 	},
 
 ]
