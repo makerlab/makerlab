@@ -3,13 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./lifecards.org/utils/marked.min.js"></script>
+<script src="/lifecards.org/utils/marked.min.js"></script>
 </head>
 <body></body>
 </html>
 <script type="module">
-import DB from "./lifecards.org/utils/db.js"
-import DOM from "./lifecards.org/js/dom.js"
-let db = new DB({command:"load",url:"../../data.js"})
-let dom = new DOM({uuid:"/",query:"*",db})
+import DB from "/lifecards.org/utils/db.js"
+import DOM from "/lifecards.org/js/dom.js"
+import data from "/.lifecards.js"
+let db = data[0].db = new DB(data)
+let dom = new DOM(data[0])
 </script>

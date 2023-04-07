@@ -17,9 +17,9 @@ let logo = {
 let navigation = {
 	kind:"nav",
 	children: [
-		{ kind:'link', link:'/makerlab.com/projects', },
-		{ kind:'link', link:'/makerlab.com/about', },
-		{ kind:'link', link:'/makerlab.com/contact' },
+		{ kind:'link', link:'/projects', },
+		{ kind:'link', link:'/about', },
+		{ kind:'link', link:'/contact' },
 	]
 }
 
@@ -29,7 +29,7 @@ let navigation = {
 
 let content = {
 	kind:'routable',
-	default:'/makerlab.com/projects',
+	default:'/projects',
 	stylize: {
 		display: 'flex',
 		width: '100%',
@@ -54,7 +54,7 @@ let footer = {
 ///
 
 let contact = {
-	uuid:"/makerlab.com/contact",
+	uuid:"/contact",
 	stylize:{display: 'flex'},
 	children: [
 		{
@@ -72,7 +72,7 @@ let contact = {
 ///
 
 let about = {
-	uuid:"/makerlab.com/about",
+	uuid:"/about",
 	stylize:{ maxWidth:"800px" },
 	markdown:`
 
@@ -124,7 +124,9 @@ Focus on caring for our own communities first, then and only then do you grow ou
 let projects = [
 
 	{
-		uuid:"/makerlab.com/projects",
+		uuid:"/projects",
+		kind:"area",
+		kindchildren:"card",
 		stylize: {
 			display: 'flex',
 			width: '100%',
@@ -132,68 +134,66 @@ let projects = [
 			justifyContent:"center",
 			flexWrap:"wrap",
 		},
-		query:"*",
-		queryrender:"card",
 	},
 
 	{
-		uuid:"/makerlab.com/projects/whereis",
+		uuid:"/projects/whereis",
 		content:"Disjecta Social Lifelines",
 		tags:"place, social",
 		href:"https://www.oregoncontemporary.org/immaterialized",
 	},
 
 	{
-		uuid:"/makerlab.com/projects/ImageWiki",
+		uuid:"/projects/ImageWiki",
 		content:"Visual Search Tool",
 		tags:"image, pechakucha",
 		href:"https://vimeo.com/2818525"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/wherecamp",
+		uuid:"/projects/wherecamp",
 		content:"Know your place!",
 		tags:"place, social",
 		href:"https://wherecamp.org"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/Luminate",
+		uuid:"/projects/Luminate",
 		content:"Interactive Augmented Reality Drawing Program",
 		tags:"drawing, ar",
 		href:"https://github.com/makerlab/luminate"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/LightSuit",
+		uuid:"/projects/LightSuit",
 		content:"Burning Man Wearable Art",
 		tags:"play, hardware",
 		href:"https://github.com/makerlab/lightsuit"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/Zero Theorem",
+		uuid:"/projects/Zero Theorem",
 		content:"The Zero Theorem movie for Terry Gilliam",
 		tags:"movie, tools",
 		href:"https://www.imdb.com/title/tt2333804/"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/LifeCards",
+		uuid:"/projects/LifeCards",
 		content:"Data driven Layout Engine",
 		tags:"design, data",
 		href:"https://github.com/makerlab/lifecards"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/HumanScale",
+		uuid:"/projects/HumanScale",
 		content:"Design thinking for human scale architecture",
 		tags:"design, philosophy",
 		href:"https://human.scale"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/Lemonopoly",
+		uuid:"/projects/Lemonopoly",
 		content:"Place based Game and winner of the Zero1 Arts Grant",
 		tags:"game, place, 🍋",
 		href:"https://lemonopoly.org"
@@ -201,42 +201,42 @@ let projects = [
 
 
 	{
-		uuid:"/makerlab.com/projects/Sugar",
+		uuid:"/projects/Sugar",
 		content:"Real time place based game",
 		tags:"game, place",
 		href:"https://sugarhero.world"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/InsideMaps",
+		uuid:"/projects/InsideMaps",
 		content:"3d reconstruction of modern interiors",
 		tags:"tool, 3d",
 		href:"https://insidemaps.com"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/Orbital",
+		uuid:"/projects/Orbital",
 		content:"Agent based cloud computation engine",
 		tags:"tool, sim",
 		href:"https://orbital.foundation"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/Simulate World",
+		uuid:"/projects/Simulate World",
 		content:"Simulating the world",
 		tags:"philosophy",
 		href:"https://simulate.world"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/StarryBot",
+		uuid:"/projects/StarryBot",
 		content:"Token gated discord bot",
 		tags:"crypto",
 		href:"https://starrybot.xyz"
 	},
 
 	{
-		uuid:"/makerlab.com/projects/FutureOf",
+		uuid:"/projects/FutureOf",
 		content:"A Fun Pandemic Conference Series",
 		tags:"social",
 		href:"https://future-of.web.app"
@@ -244,12 +244,15 @@ let projects = [
 
 ]
 
+// ardevcamp
+// 
+
 ///
 /// a site policy; sets up main css themes including light/dark
 ///
 
 let sitelayout = {
-	uuid: '/makerlab.com',
+	uuid: '/',
 	kind: "site",
 	tags: ["homepage"],
 	children: [ logo, navigation, content, footer ]
