@@ -1,16 +1,26 @@
+
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/lifecards.org/css/lifecards.css">
 <script src="/lifecards.org/utils/marked.min.js"></script>
 </head>
 <body></body>
 </html>
 <script type="module">
+
+// bring in a database service
 import DB from "/lifecards.org/utils/db.js"
+
+// bring in a dom abstraction helper
 import DOM from "/lifecards.org/js/dom.js"
-import data from "/.lifecards.js"
-let db = data[0].db = new DB(data)
-let dom = new DOM(data[0])
+
+// start up database - by default it loads "./lifecards.js"
+let db = new DB()
+
+// start up the dom - by default it queries the db for top level nodes and paints those
+let dom = new DOM(db)
+
 </script>

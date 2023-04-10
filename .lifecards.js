@@ -126,92 +126,6 @@ let projects = [
 	{
 		uuid:"/projects",
 		kind:"area",
-		kindchildren:"card",
-		stylize: {
-			display: 'flex',
-			width: '100%',
-			maxWidth:"1200px",
-			justifyContent:"center",
-			flexWrap:"wrap",
-		},
-	},
-
-	{
-		uuid:"/projects/whereis",
-		content:"Disjecta Social Lifelines",
-		tags:"place, social",
-		href:"https://www.oregoncontemporary.org/immaterialized",
-	},
-
-	{
-		uuid:"/projects/ImageWiki",
-		content:"Visual Search Tool",
-		tags:"image, pechakucha",
-		href:"https://vimeo.com/2818525"
-	},
-
-	{
-		uuid:"/projects/wherecamp",
-		content:"Know your place!",
-		tags:"place, social",
-		href:"https://wherecamp.org"
-	},
-
-	{
-		uuid:"/projects/Luminate",
-		content:"Interactive Augmented Reality Drawing Program",
-		tags:"drawing, ar",
-		href:"https://github.com/makerlab/luminate"
-	},
-
-	{
-		uuid:"/projects/LightSuit",
-		content:"Burning Man Wearable Art",
-		tags:"play, hardware",
-		href:"https://github.com/makerlab/lightsuit"
-	},
-
-	{
-		uuid:"/projects/Zero Theorem",
-		content:"The Zero Theorem movie for Terry Gilliam",
-		tags:"movie, tools",
-		href:"https://www.imdb.com/title/tt2333804/"
-	},
-
-	{
-		uuid:"/projects/LifeCards",
-		content:"Data driven Layout Engine",
-		tags:"design, data",
-		href:"https://github.com/makerlab/lifecards"
-	},
-
-	{
-		uuid:"/projects/HumanScale",
-		content:"Design thinking for human scale architecture",
-		tags:"design, philosophy",
-		href:"https://human.scale"
-	},
-
-	{
-		uuid:"/projects/Lemonopoly",
-		content:"Place based Game and winner of the Zero1 Arts Grant",
-		tags:"game, place, 🍋",
-		href:"https://lemonopoly.org"
-	},
-
-
-	{
-		uuid:"/projects/Sugar",
-		content:"Real time place based game",
-		tags:"game, place",
-		href:"https://sugarhero.world"
-	},
-
-	{
-		uuid:"/projects/InsideMaps",
-		content:"3d reconstruction of modern interiors",
-		tags:"tool, 3d",
-		href:"https://insidemaps.com"
 	},
 
 	{
@@ -229,6 +143,34 @@ let projects = [
 	},
 
 	{
+		uuid:"/projects/FutureOf",
+		content:"A Fun Pandemic Conference Series",
+		tags:"social",
+		href:"https://future-of.web.app"
+	},
+
+	{
+		uuid:"/projects/HumanScale",
+		content:"Design thinking for human scale architecture",
+		tags:"design, philosophy",
+		href:"https://human.scale"
+	},
+
+	{
+		uuid:"/projects/LifeCards",
+		content:"Data driven Layout Engine",
+		tags:"design, data",
+		href:"https://github.com/makerlab/lifecards"
+	},
+
+	{
+		uuid:"/projects/Sugar",
+		content:"Real time place based game",
+		tags:"game, place",
+		href:"https://sugarhero.world"
+	},
+
+	{
 		uuid:"/projects/StarryBot",
 		content:"Token gated discord bot",
 		tags:"crypto",
@@ -236,10 +178,63 @@ let projects = [
 	},
 
 	{
-		uuid:"/projects/FutureOf",
-		content:"A Fun Pandemic Conference Series",
-		tags:"social",
-		href:"https://future-of.web.app"
+		uuid:"/projects/Lemonopoly",
+		content:"Place based Game and winner of the Zero1 Arts Grant",
+		tags:"game, place, 🍋",
+		href:"https://lemonopoly.org"
+	},
+
+
+	{
+		uuid:"/projects/InsideMaps",
+		content:"3d reconstruction of modern interiors",
+		tags:"tool, 3d",
+		href:"https://insidemaps.com"
+	},
+
+
+	{
+		uuid:"/projects/Zero Theorem",
+		content:"The Zero Theorem movie for Terry Gilliam",
+		tags:"movie, tools",
+		href:"https://www.imdb.com/title/tt2333804/"
+	},
+
+	{
+		uuid:"/projects/Luminate",
+		content:"Interactive Augmented Reality Drawing Program",
+		tags:"drawing, ar",
+		href:"https://github.com/makerlab/luminate"
+	},
+
+	{
+		uuid:"/projects/LightSuit",
+		content:"Burning Man Wearable Art",
+		tags:"play, hardware",
+		href:"https://github.com/makerlab/lightsuit"
+	},
+
+
+	{
+		uuid:"/projects/WhereCamp",
+		content:"Know your place!",
+		tags:"place, social",
+		href:"https://wherecamp.org"
+	},
+
+
+	{
+		uuid:"/projects/ImageWiki",
+		content:"Visual Search Tool",
+		tags:"image, pechakucha",
+		href:"https://vimeo.com/2818525"
+	},
+
+	{
+		uuid:"/projects/WhereIs",
+		content:"Disjecta Social Lifelines",
+		tags:"place, social",
+		href:"https://www.oregoncontemporary.org/immaterialized",
 	},
 
 ]
@@ -253,7 +248,6 @@ let projects = [
 
 let sitelayout = {
 	uuid: '/',
-	kind: "site",
 	tags: ["homepage"],
 	children: [ logo, navigation, content, footer ]
 }
