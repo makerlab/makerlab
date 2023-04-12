@@ -132,6 +132,9 @@ let projects = [
 		uuid:"/projects/Orbital",
 		content:"Agent based cloud computation engine",
 		tags:"tool, sim",
+		art:"/assets/orbital.jpg",
+		sponsor:"@anselm",
+		sponsor_url:"https://twitter.com/@anselm",
 		href:"https://orbital.foundation"
 	},
 
@@ -139,6 +142,7 @@ let projects = [
 		uuid:"/projects/Simulate World",
 		content:"Simulating the world",
 		tags:"philosophy",
+		art:"/assets/simulate_world.jpg",
 		href:"https://simulate.world"
 	},
 
@@ -146,6 +150,7 @@ let projects = [
 		uuid:"/projects/FutureOf",
 		content:"A Fun Pandemic Conference Series",
 		tags:"social",
+		art:"/assets/futureof.jpg",
 		href:"https://future-of.web.app"
 	},
 
@@ -153,6 +158,7 @@ let projects = [
 		uuid:"/projects/HumanScale",
 		content:"Design thinking for human scale architecture",
 		tags:"design, philosophy",
+		art:"/assets/humanscale.jpg",
 		href:"https://human.scale"
 	},
 
@@ -160,6 +166,7 @@ let projects = [
 		uuid:"/projects/LifeCards",
 		content:"Data driven Layout Engine",
 		tags:"design, data",
+		art:"/assets/lifecards.jpg",
 		href:"https://github.com/makerlab/lifecards"
 	},
 
@@ -167,6 +174,7 @@ let projects = [
 		uuid:"/projects/Sugar",
 		content:"Real time place based game",
 		tags:"game, place",
+		art:"/assets/sugar.jpg",
 		href:"https://sugarhero.world"
 	},
 
@@ -174,6 +182,7 @@ let projects = [
 		uuid:"/projects/StarryBot",
 		content:"Token gated discord bot",
 		tags:"crypto",
+		art:"/assets/starrybot.xyz",
 		href:"https://starrybot.xyz"
 	},
 
@@ -181,6 +190,7 @@ let projects = [
 		uuid:"/projects/Lemonopoly",
 		content:"Place based Game and winner of the Zero1 Arts Grant",
 		tags:"game, place, 🍋",
+		art:"/assets/lemonopoly.jpg",
 		href:"https://lemonopoly.org"
 	},
 
@@ -189,14 +199,16 @@ let projects = [
 		uuid:"/projects/InsideMaps",
 		content:"3d reconstruction of modern interiors",
 		tags:"tool, 3d",
+		art:"/assets/insidemaps.jpg",
 		href:"https://insidemaps.com"
 	},
 
 
 	{
 		uuid:"/projects/Zero Theorem",
-		content:"The Zero Theorem movie for Terry Gilliam",
+		content:"The Zero Theorem Movie",
 		tags:"movie, tools",
+		art:"/assets/zerotheorem.jpg",
 		href:"https://www.imdb.com/title/tt2333804/"
 	},
 
@@ -204,6 +216,7 @@ let projects = [
 		uuid:"/projects/Luminate",
 		content:"Interactive Augmented Reality Drawing Program",
 		tags:"drawing, ar",
+		art:"/assets/luminate.jpg",
 		href:"https://github.com/makerlab/luminate"
 	},
 
@@ -211,6 +224,7 @@ let projects = [
 		uuid:"/projects/LightSuit",
 		content:"Burning Man Wearable Art",
 		tags:"play, hardware",
+		art:"/assets/lightsuit.jpg",
 		href:"https://github.com/makerlab/lightsuit"
 	},
 
@@ -219,6 +233,7 @@ let projects = [
 		uuid:"/projects/WhereCamp",
 		content:"Know your place!",
 		tags:"place, social",
+		art:"/assets/wherecamp.jpg",
 		href:"https://wherecamp.org"
 	},
 
@@ -227,6 +242,7 @@ let projects = [
 		uuid:"/projects/ImageWiki",
 		content:"Visual Search Tool",
 		tags:"image, pechakucha",
+		art:"/assets/imagewiki.jpg",
 		href:"https://vimeo.com/2818525"
 	},
 
@@ -234,6 +250,7 @@ let projects = [
 		uuid:"/projects/WhereIs",
 		content:"Disjecta Social Lifelines",
 		tags:"place, social",
+		art:"/assets/whereis.jpg",
 		href:"https://www.oregoncontemporary.org/immaterialized",
 	},
 

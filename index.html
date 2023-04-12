@@ -11,6 +11,9 @@
 </html>
 <script type="module">
 
+// unsplash license for images
+let access_key = "1M43c1xXx1JR0-XN0-jL5obaQ-CwWNUB0dkHHegUQKQ"
+
 // bring in a database service
 import DB from "/lifecards.org/utils/db.js"
 
@@ -24,3 +27,18 @@ let db = new DB()
 let dom = new DOM(db)
 
 </script>
+
+<style>
+/* a fun piano effect */
+lifecards-card {
+	width:  64px;
+}
+lifecards-area {
+	max-width: 1100px;
+}
+@media (max-width: 1100px) {
+	lifecards-card {
+		width: 300px;
+	}
+}
+</style>
