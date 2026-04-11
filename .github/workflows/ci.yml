@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, overhaul]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build
+  build-and-smoke:
+    name: Build & smoke test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,5 +29,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+
+      - name: Smoke test
+        run: bash scripts/smoke.sh
         env:
           NEXT_TELEMETRY_DISABLED: "1"

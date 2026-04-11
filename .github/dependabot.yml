@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # npm deps — weekly, grouped so we don't drown in PRs
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      next-react:
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+          - "@types/react*"
+      dev-deps:
+        dependency-type: development
+
+  # github-actions pinned versions — keep up to date
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday

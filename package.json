@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "smoke": "bash scripts/smoke.sh"
   },
   "dependencies": {
     "next": "^15.5.15",
