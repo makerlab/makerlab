@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/lib/site";
+import { FooterWordmark } from "@/components/Decoration";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -99,10 +100,13 @@ export default function RootLayout({
               <span className="font-display text-5xl sm:text-6xl leading-none text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
                 m
               </span>
-              <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60 pb-2">
-                makerlab
-                <br />
-                est. 2011
+              <span className="hidden sm:flex flex-col pb-2 leading-tight">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
+                  makerlab · est. 2006
+                </span>
+                <span className="mt-1 font-display italic text-[13px] text-[var(--ink)]/70 group-hover:text-[var(--accent)] transition-colors">
+                  Go on, be curious.
+                </span>
               </span>
             </Link>
             <nav aria-label="Primary" className="pt-3">
@@ -126,11 +130,13 @@ export default function RootLayout({
         <main id="main" className="flex-1">{children}</main>
 
         {/* Footer — edition/colophon style */}
-        <footer className="mt-32 border-t border-[var(--ink)]/15">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-10 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/70">
+        <footer className="mt-32 border-t border-[var(--ink)]/15 overflow-hidden">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-10 pt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/70">
             <div>
               <p className="text-[var(--ink)]">Makerlab</p>
-              <p className="mt-1">A collective of humans making strange beautiful things.</p>
+              <p className="mt-1 normal-case tracking-normal font-display italic text-[13px] text-[var(--ink)]/60">
+                Go on, be curious.
+              </p>
             </div>
             <div className="md:text-center">
               <p>{site.contact.primary}</p>
@@ -151,9 +157,12 @@ export default function RootLayout({
                   </li>
                 ))}
               </ul>
-              <p className="mt-3">© {new Date().getFullYear()} · Edition {new Date().getFullYear() - 2010}</p>
+              <p className="mt-3">© {new Date().getFullYear()} · Edition {new Date().getFullYear() - 2005}</p>
             </div>
           </div>
+
+          {/* Oversized rainbow-gradient wordmark */}
+          <FooterWordmark />
         </footer>
       </body>
     </html>

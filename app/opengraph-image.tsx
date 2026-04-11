@@ -32,7 +32,7 @@ export default async function Image() {
             color: "#0d0d0d99",
           }}
         >
-          <div>Makerlab · est. 2011</div>
+          <div>Makerlab · est. 2006</div>
           <div>Vol. 01</div>
         </div>
         <div

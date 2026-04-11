@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1400px] grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-1 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60 md:pt-6">
             <p>Vol. 01</p>
-            <p className="mt-1">Issue {new Date().getFullYear() - 2010}</p>
+            <p className="mt-1">Issue {new Date().getFullYear() - 2005}</p>
           </div>
           <div className="col-span-12 md:col-span-11">
             <h1 className="font-display text-[13vw] md:text-[10vw] lg:text-[9rem] leading-[0.88] tracking-[-0.03em] text-[var(--ink)]">
@@ -40,9 +40,9 @@ export default function HomePage() {
             <div className="mt-10 grid grid-cols-12 gap-6">
               <p className="col-span-12 md:col-span-6 md:col-start-5 text-[15px] text-[var(--ink)]/80 leading-relaxed">
                 Makerlab is a full-stack interactive design and build
-                collective. Since 2011 we've been prototyping tools, games,
-                simulations, hardware, and the occasional movie — mostly for
-                the love of it, sometimes for hire.
+                collective. Twenty years in, we're still prototyping tools,
+                games, simulations, hardware, and the occasional movie —
+                mostly for the love of it, sometimes for hire.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.2em]">

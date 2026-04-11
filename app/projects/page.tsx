@@ -6,7 +6,7 @@ import { projects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Index",
   description:
-    "The full index of Makerlab projects — tools, games, simulations, hardware, wearables, and places we've built since 2011.",
+    "The full index of Makerlab projects — tools, games, simulations, hardware, wearables, and places we've built since 2006.",
   alternates: { canonical: "/projects" },
 };
 
