@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Crystal } from "@/components/Decoration";
 
 export default function NotFound() {
   return (
@@ -8,6 +9,10 @@ export default function NotFound() {
           <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
             Errata
           </p>
+          <Crystal
+            variant="point"
+            className="hidden md:block w-10 h-14 mt-8 text-[var(--accent)] rotate-180"
+          />
         </div>
         <div className="col-span-12 md:col-span-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)]">

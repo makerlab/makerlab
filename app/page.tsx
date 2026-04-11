@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
+import { Crystal, Sparkle } from "@/components/Decoration";
 
 const marqueeWords = [
   "weird",
@@ -25,6 +26,10 @@ export default function HomePage() {
           <div className="col-span-12 md:col-span-1 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60 md:pt-6">
             <p>Vol. 01</p>
             <p className="mt-1">Issue {new Date().getFullYear() - 2005}</p>
+            <Crystal
+              variant="kite"
+              className="hidden md:block w-7 h-10 mt-10 text-[var(--accent)] -rotate-[8deg]"
+            />
           </div>
           <div className="col-span-12 md:col-span-11">
             <h1 className="font-display text-[13vw] md:text-[10vw] lg:text-[9rem] leading-[0.88] tracking-[-0.03em] text-[var(--ink)]">
@@ -36,6 +41,9 @@ export default function HomePage() {
               <span className="squiggle">beautiful</span>
               <br />
               useful things.
+              <Sparkle
+                className="inline-block w-[0.7em] h-[0.7em] ml-[0.1em] -mt-[0.25em] align-middle text-[var(--accent)]"
+              />
             </h1>
             <div className="mt-10 grid grid-cols-12 gap-6">
               <p className="col-span-12 md:col-span-6 md:col-start-5 text-[15px] text-[var(--ink)]/80 leading-relaxed">
@@ -138,9 +146,13 @@ export default function HomePage() {
       {/* Editorial mission blurb with a dropcap */}
       <section className="px-6 sm:px-10 pt-32">
         <div className="mx-auto max-w-[1400px] grid grid-cols-12 gap-6">
-          <p className="col-span-12 md:col-span-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
-            § 02 — Colophon
-          </p>
+          <div className="col-span-12 md:col-span-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
+            <p>§ 02 — Colophon</p>
+            <Crystal
+              variant="cluster"
+              className="hidden md:block w-8 h-11 mt-8 text-[var(--accent)] rotate-[5deg]"
+            />
+          </div>
           <div className="col-span-12 md:col-span-8">
             <p className="dropcap font-display-tight text-[22px] md:text-[26px] leading-[1.4] text-[var(--ink)]">
               We believe in open code, open data, and open participation. We'd

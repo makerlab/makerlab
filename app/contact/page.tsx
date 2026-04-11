@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { Sparkle } from "@/components/Decoration";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -17,6 +18,7 @@ export default function ContactPage() {
           </p>
           <h1 className="col-span-12 md:col-span-10 font-display text-[15vw] md:text-[12vw] lg:text-[11rem] leading-[0.85] tracking-[-0.03em]">
             <span className="italic">Hello,</span>
+            <Sparkle className="inline-block w-[0.5em] h-[0.5em] ml-[0.15em] -mt-[0.4em] align-middle text-[var(--accent)]" />
             <br />
             come find us.
           </h1>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { aboutSections, aboutSatellites } from "@/lib/about";
+import { Crystal } from "@/components/Decoration";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,9 +14,13 @@ export default function AboutPage() {
     <section className="px-6 sm:px-10 pt-12 pb-24">
       <div className="mx-auto max-w-[1400px]">
         <header className="grid grid-cols-12 gap-6 mb-16">
-          <p className="col-span-12 md:col-span-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60 md:pt-4">
-            About
-          </p>
+          <div className="col-span-12 md:col-span-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60 md:pt-4">
+            <p>About</p>
+            <Crystal
+              variant="point"
+              className="hidden md:block w-8 h-12 mt-10 text-[var(--accent)] rotate-[3deg]"
+            />
+          </div>
           <h1 className="col-span-12 md:col-span-10 font-display text-[14vw] md:text-[10vw] lg:text-[9rem] leading-[0.88] tracking-[-0.03em]">
             A loose confederation
             <br />
