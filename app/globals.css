@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #efeae0;
+  --paper-deep: #e8e1d1;
+  --ink: #0d0d0d;
+  --ink-soft: #1a1a1a;
+  --accent: #ff3b2f;
+  --accent-2: #2a36ff;
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      rgba(255, 59, 47, 0.07),
+      transparent 60%
+    ),
+    var(--paper);
+  color: var(--ink);
+  /* subtle paper grain */
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(
+    rgba(13, 13, 13, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+/* display type uses the variable Fraunces — wide opsz for the huge sizes */
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+  letter-spacing: -0.02em;
+}
+
+.font-display-tight {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-variation-settings: "opsz" 14, "SOFT" 0, "WONK" 0;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* hand-drawn underline for the hero */
+.squiggle {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 18' preserveAspectRatio='none'><path d='M2 10 C 40 2, 80 18, 120 10 S 200 2, 240 10 S 298 14, 298 10' stroke='%23ff3b2f' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.45em;
+  padding-bottom: 0.1em;
+}
+
+/* dropcap for editorial bodies */
+.dropcap::first-letter {
+  font-family: var(--font-display), Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  float: left;
+  font-size: 5.2rem;
+  line-height: 0.85;
+  padding: 0.35rem 0.6rem 0 0;
+  color: var(--accent);
+}
+
+/* marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+
+/* subtle tilt for delight */
+.tilt-hover {
+  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.tilt-hover:hover {
+  transform: rotate(-0.4deg) translateY(-1px);
+}
+
+/* a reusable hairline rule */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+/* z-index above the grain */
+main, header, footer {
+  position: relative;
+  z-index: 2;
+}
