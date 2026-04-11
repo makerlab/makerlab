@@ -1,0 +1,134 @@
+import type { CSSProperties } from "react";
+
+type CrystalVariant = "point" | "kite" | "cluster";
+
+export function Crystal({
+  variant = "point",
+  className = "",
+  style,
+}: {
+  variant?: CrystalVariant;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      viewBox="0 0 100 140"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      strokeLinejoin="round"
+      strokeLinecap="round"
+      aria-hidden="true"
+      className={`pointer-events-none ${className}`}
+      style={style}
+    >
+      {variant === "point" && (
+        <g>
+          {/* tall single quartz point */}
+          <path d="M50 6 L86 34 L76 128 L24 128 L14 34 Z" />
+          <path d="M50 6 L50 128" opacity="0.5" />
+          <path d="M14 34 L50 46 L86 34" opacity="0.5" />
+          <path d="M24 128 L50 46" opacity="0.4" />
+          <path d="M76 128 L50 46" opacity="0.4" />
+          {/* inner glint */}
+          <path d="M42 24 L46 36" strokeWidth={1.5} opacity="0.8" />
+        </g>
+      )}
+      {variant === "kite" && (
+        <g>
+          {/* kite / diamond */}
+          <path d="M50 8 L90 60 L50 132 L10 60 Z" />
+          <path d="M50 8 L50 132" opacity="0.5" />
+          <path d="M10 60 L90 60" opacity="0.5" />
+          <path d="M50 8 L10 60 L50 132" opacity="0.35" />
+          <path d="M34 20 L40 32" strokeWidth={1.5} opacity="0.8" />
+        </g>
+      )}
+      {variant === "cluster" && (
+        <g>
+          {/* three-point cluster rising from a base */}
+          <path d="M8 110 L92 110 L78 132 L22 132 Z" />
+          <path d="M22 110 L32 44 L42 110" />
+          <path d="M42 110 L55 20 L68 110" />
+          <path d="M58 110 L74 56 L88 110" />
+          <path d="M32 44 L36 60 L40 44" opacity="0.5" strokeWidth={1.5} />
+          <path d="M55 20 L60 40 L66 20" opacity="0.5" strokeWidth={1.5} />
+        </g>
+      )}
+    </svg>
+  );
+}
+
+export function Sparkle({
+  className = "",
+  style,
+}: {
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={`pointer-events-none ${className}`}
+      style={style}
+    >
+      <path
+        d="M12 2 C 12 8, 14 10, 22 12 C 14 14, 12 16, 12 22 C 12 16, 10 14, 2 12 C 10 10, 12 8, 12 2 Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+/**
+ * FooterWordmark — oversized multicolor "m", a brand-heritage callback
+ * to the original Makerlab logo from ~2006. 20 years going strong.
+ * Decorative; aria-hidden.
+ */
+export function FooterWordmark() {
+  return (
+    <div className="relative mt-20 select-none">
+      {/* Year range marginalia, magazine-colophon style */}
+      <div
+        aria-hidden
+        className="mx-auto max-w-[1400px] px-6 sm:px-10 flex items-end justify-between gap-6 mb-3 text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55"
+      >
+        <span>mmvi — mmxxvi</span>
+        <span>2006 — 2026</span>
+      </div>
+
+      {/* Giant gradient wordmark — cropped at the bottom like a cover mark */}
+      <div className="relative overflow-hidden" style={{ lineHeight: 0.8 }}>
+        <span
+          aria-hidden
+          className="block font-display font-normal tracking-[-0.04em] leading-[0.78] text-center"
+          style={{
+            fontSize: "clamp(18rem, 48vw, 54rem)",
+            background:
+              "linear-gradient(95deg, #ff3b2f 0%, #ff8a00 14%, #f5c400 28%, #3bbf5a 44%, #00c2d1 60%, #2a36ff 78%, #a633ff 100%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            marginBottom: "-0.22em",
+            fontVariationSettings: '"opsz" 144, "SOFT" 100, "WONK" 1',
+            fontStyle: "italic",
+          }}
+        >
+          m
+        </span>
+      </div>
+
+      {/* Cute lil tagline */}
+      <p className="relative mx-auto max-w-[1400px] px-6 sm:px-10 mt-6 pb-10 text-center">
+        <span className="font-display italic text-lg sm:text-xl text-[var(--ink)]/75">
+          20 years going strong
+        </span>
+        <span aria-hidden className="text-[var(--accent)] ml-2">
+          ✦
+        </span>
+      </p>
+    </div>
+  );
+}

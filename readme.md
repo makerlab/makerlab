@@ -1,48 +1,46 @@
 # makerlab.com
 
-The website for [makerlab.com](https://makerlab.com) — a design/build collective portfolio site.
+The Makerlab studio site. Next.js 15 (App Router) + TypeScript + Tailwind, deployed on Vercel.
 
-Built April 2023 and still live as of 2026.
+## Develop
 
-## Design thesis
-
-The entire site is a demonstration of the lifecards approach:
-
-- **No SSR.** The client renders everything. There is no server-side templating, no build step, no static site generator. The page arrives as a near-empty shell and the engine assembles it at runtime.
-- **No raw HTML authoring.** The site content is never written as markup. Instead, the layout is treated as a **scenegraph** — a tree of typed objects (logo, nav, routable, area, card, footer) that the engine traverses and renders, closer to how a video game composes a scene than how a web page is traditionally authored.
-- **Declarative data grammar.** `.lifecards.js` is a pure data description — kinds, children, content, links, tags — fully separated from layout and presentation. It resembles HTML in spirit (a tree of nodes with attributes) but strips away the coupling to visual concerns. The engine decides how to paint it.
-
-## Architecture
-
-- **Static site** powered by [lifecards](https://github.com/makerlab/lifecards), a data-driven layout engine pulled in as a git submodule at `lifecards.org/`
-- **Site data** lives in `.lifecards.js` — a JS module exporting an array of card objects (logo, nav, projects, about, contact, footer)
-- **Project images** are local in `assets/` (earlier versions used the Unsplash API but hit rate limits)
-- `index.html` is minimal — it loads the lifecards CSS/JS, instantiates a DB (reads `.lifecards.js`), and a DOM renderer
-
-## Hosting
-
-- **Hosted on Cloudflare Pages**, connected to the GitHub repo `makerlab/makerlab` on the `main` branch
-- Cloudflare Pages serves the repo as a static site directly — no build step, no `wrangler.toml`, no config files in the repo
-- The domain `makerlab.com` DNS is managed through Cloudflare and pointed at the Pages deployment
-
-## Local development
-
-```sh
-git submodule update --remote
-./run.sh
+```bash
+npm install
+npm run dev
 ```
 
-`run.sh` starts a local Deno server (`deno run --allow-env --allow-net --allow-read ./lifecards.org/utils/server.ts`).
+Runs at http://localhost:3000.
 
-## Repo structure
+## Build
 
-```
-index.html              # entry point
-.lifecards.js           # site content/data (projects, about, contact, etc.)
-run.sh                  # local dev server (Deno)
-.gitmodules             # lifecards submodule reference
-assets/                 # project images
-lifecards.org/          # git submodule — the lifecards engine
-projects/               # (unused placeholder)
+```bash
+npm run build
+npm run start
 ```
 
+## Structure
+
+- `app/` — routes (home, projects, about, contact, 404, sitemap, robots, OG image)
+- `app/projects/[slug]/` — per-project pages, statically generated
+- `lib/site.ts` — site-wide config (name, description, URL, nav, contact, social)
+- `lib/projects.ts` — projects data — edit here to add/remove/update projects
+- `lib/about.ts` — about-page copy
+- `public/assets/` — project thumbnails
+
+## Editing content
+
+- **Add or change a project:** edit `lib/projects.ts`. Drop a new image in `public/assets/` and reference it by path.
+- **Update about copy:** edit `lib/about.ts`.
+- **Change site metadata, nav, contact, social:** edit `lib/site.ts`.
+
+## SEO
+
+- Per-page metadata via Next's `metadata` API.
+- `app/sitemap.ts` generates `/sitemap.xml` including every project page.
+- `app/robots.ts` generates `/robots.txt`.
+- JSON-LD `Organization` on every page + per-project `CreativeWork`.
+- Auto-generated Open Graph image at `/opengraph-image` (edit `app/opengraph-image.tsx`).
+
+## Deploy
+
+Push to a branch connected to Vercel — it auto-detects Next.js. No `vercel.json` needed.
