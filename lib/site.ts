@@ -22,6 +22,7 @@ export const site = {
   social: [
     { label: "Twitter", href: "https://twitter.com/makerlab" },
     { label: "Blog", href: "https://blog.makerlab.com" },
+    { label: "Slowcode", href: "https://slowcode.makerlab.com" },
     { label: "GitHub", href: "https://github.com/makerlab" },
   ],
 } as const;

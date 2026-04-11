@@ -7,3 +7,4 @@ out
 .vercel
 next-env.d.ts
 *.tsbuildinfo
+.dns-backup-*.json
