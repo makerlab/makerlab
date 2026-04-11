@@ -9,15 +9,33 @@ updates:
     open-pull-requests-limit: 5
     groups:
       next-react:
+        # Next/React bumps stay grouped so they move together
         patterns:
           - "next"
           - "react"
           - "react-dom"
           - "@types/react*"
-      dev-deps:
+      dev-deps-safe:
+        # All other dev deps — but only patch + minor bumps. Majors are
+        # filtered below and opened as individual PRs (if at all), so a
+        # grouped PR can never mash a patch into a major migration.
         dependency-type: development
+        update-types:
+          - "patch"
+          - "minor"
+    ignore:
+      # Tailwind v4 is a ground-up rewrite (CSS-first config, @theme
+      # directive, no tailwind.config.ts). Treat as a manual migration.
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      # TypeScript majors usually need code changes. Handle manually.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      # @types/node follows Node LTS — don't auto-jump majors.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
-  # github-actions pinned versions — keep up to date
+  # GitHub Actions versions — keep workflow actions current
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
