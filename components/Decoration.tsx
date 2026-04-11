@@ -110,7 +110,7 @@ export function FooterWordmark() {
           aria-hidden
           className="block font-display font-normal leading-[0.78] text-center whitespace-nowrap"
           style={{
-            fontSize: "clamp(5rem, 24vw, 36rem)",
+            fontSize: "clamp(10rem, 48vw, 72rem)",
             letterSpacing: "-0.05em",
             background:
               "linear-gradient(90deg, #ff6a1a 0%, #ffa52b 12%, #d4c32a 24%, #8fc520 36%, #3cbf1a 50%, #14c9a0 66%, #10b8c9 80%, #00a5e0 100%)",
