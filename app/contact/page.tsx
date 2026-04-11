@@ -40,7 +40,7 @@ export default function ContactPage() {
               {site.contact.alias}
             </a>
             <p className="mt-6 text-[13px] text-[var(--ink)]/70 max-w-xs">
-              Goes to both of us. Pitches, collaborations, wild ideas, weird
+              Goes to all of us. Pitches, collaborations, wild ideas, weird
               questions — all welcome.
             </p>
           </div>

@@ -83,9 +83,10 @@ export function Sparkle({
 }
 
 /**
- * FooterWordmark — oversized multicolor "m", a brand-heritage callback
- * to the original Makerlab logo from ~2006. 20 years going strong.
- * Decorative; aria-hidden.
+ * FooterWordmark — oversized full "makerlab" wordmark, a brand-heritage
+ * callback to the original 2006 Makerlab logo. Italic Fraunces display
+ * with the original horizontal orange→green→blue gradient. Decorative;
+ * aria-hidden.
  */
 export function FooterWordmark() {
   return (
@@ -93,35 +94,41 @@ export function FooterWordmark() {
       {/* Year range marginalia, magazine-colophon style */}
       <div
         aria-hidden
-        className="mx-auto max-w-[1400px] px-6 sm:px-10 flex items-end justify-between gap-6 mb-3 text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55"
+        className="mx-auto max-w-[1400px] px-6 sm:px-10 flex items-end justify-between gap-6 mb-5 text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55"
       >
         <span>mmvi — mmxxvi</span>
         <span>2006 — 2026</span>
       </div>
 
-      {/* Giant gradient wordmark — cropped at the bottom like a cover mark */}
-      <div className="relative overflow-hidden" style={{ lineHeight: 0.8 }}>
+      {/* Giant gradient wordmark — full word, cropped slightly at the bottom */}
+      <div
+        className="relative overflow-hidden"
+        style={{ lineHeight: 0.78 }}
+      >
         <span
           aria-hidden
-          className="block font-display font-normal tracking-[-0.04em] leading-[0.78] text-center"
+          className="block font-display font-normal leading-[0.78] text-center whitespace-nowrap"
           style={{
-            fontSize: "clamp(18rem, 48vw, 54rem)",
+            fontSize: "clamp(4.5rem, 17vw, 18rem)",
+            letterSpacing: "-0.045em",
             background:
-              "linear-gradient(95deg, #ff3b2f 0%, #ff8a00 14%, #f5c400 28%, #3bbf5a 44%, #00c2d1 60%, #2a36ff 78%, #a633ff 100%)",
+              "linear-gradient(90deg, #ff6a1a 0%, #ffa52b 12%, #d4c32a 24%, #8fc520 36%, #3cbf1a 50%, #14c9a0 66%, #10b8c9 80%, #00a5e0 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
-            marginBottom: "-0.22em",
+            marginBottom: "-0.12em",
+            paddingLeft: "0.04em",
+            paddingRight: "0.04em",
             fontVariationSettings: '"opsz" 144, "SOFT" 100, "WONK" 1',
             fontStyle: "italic",
           }}
         >
-          m
+          makerlab
         </span>
       </div>
 
       {/* Cute lil tagline */}
-      <p className="relative mx-auto max-w-[1400px] px-6 sm:px-10 mt-6 pb-10 text-center">
+      <p className="relative mx-auto max-w-[1400px] px-6 sm:px-10 mt-7 pb-10 text-center">
         <span className="font-display italic text-lg sm:text-xl text-[var(--ink)]/75">
           20 years going strong
         </span>
