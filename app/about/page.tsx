@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { aboutSections } from "@/lib/about";
+import { aboutSections, aboutSatellites } from "@/lib/about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -35,6 +35,11 @@ export default function AboutPage() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="#around-makerlab" className="hover:text-[var(--accent)]">
+                  {String(aboutSections.length + 1).padStart(2, "0")} · Around Makerlab
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -55,6 +60,42 @@ export default function AboutPage() {
                 </section>
               );
             })}
+
+            {/* Around Makerlab — satellite sites */}
+            <section id="around-makerlab" className="scroll-mt-24 pt-6 border-t border-[var(--ink)]/15">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/40 mb-2">
+                § {String(aboutSections.length + 1).padStart(2, "0")}
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl tracking-tight mb-6">
+                Around Makerlab
+              </h2>
+              <p className="text-[17px] leading-[1.65] text-[var(--ink)]/80 mb-8">
+                Makerlab isn't just the studio — it's a small constellation of
+                places where we think out loud.
+              </p>
+              <ul className="divide-y divide-[var(--ink)]/15 border-y border-[var(--ink)]/15">
+                {aboutSatellites.map((s) => (
+                  <li key={s.url} className="group">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="grid grid-cols-12 gap-4 items-baseline py-6 hover:bg-[var(--paper-deep)] transition-colors px-2 -mx-2"
+                    >
+                      <span className="col-span-12 sm:col-span-3 font-display text-2xl sm:text-3xl tracking-tight group-hover:text-[var(--accent)] group-hover:italic transition-[color,font-style] duration-300">
+                        {s.label}
+                      </span>
+                      <span className="col-span-12 sm:col-span-8 text-[15px] text-[var(--ink)]/75 leading-relaxed">
+                        {s.desc}
+                      </span>
+                      <span className="hidden sm:block sm:col-span-1 text-right font-mono text-[11px] text-[var(--ink)]/40 group-hover:text-[var(--accent)] transition-colors">
+                        →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
         </div>
       </div>
