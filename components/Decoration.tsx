@@ -100,30 +100,52 @@ export function FooterWordmark() {
         <span>2006 — 2026</span>
       </div>
 
-      {/* Giant gradient wordmark — fills the page, slight crop at edges
-          and bottom (descenders) on purpose as a cover-mark effect */}
-      <div
-        className="relative overflow-hidden w-full"
-        style={{ lineHeight: 0.78 }}
-      >
-        <span
-          aria-hidden
-          className="block font-display font-normal leading-[0.78] text-center whitespace-nowrap"
+      {/* Two-line lockup: giant "maker" on top (cropping past the viewport)
+          with "lab" folded underneath. Both rendered as italic Fraunces
+          wonk with the same horizontal gradient so they read as one word
+          split across two lines. */}
+      <div className="relative overflow-hidden w-full" aria-hidden>
+        <div
+          className="block font-display font-normal text-center whitespace-nowrap"
           style={{
-            fontSize: "clamp(10rem, 48vw, 72rem)",
-            letterSpacing: "-0.05em",
-            background:
-              "linear-gradient(90deg, #ff6a1a 0%, #ffa52b 12%, #d4c32a 24%, #8fc520 36%, #3cbf1a 50%, #14c9a0 66%, #10b8c9 80%, #00a5e0 100%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            marginBottom: "-0.14em",
-            fontVariationSettings: '"opsz" 144, "SOFT" 100, "WONK" 1',
             fontStyle: "italic",
+            letterSpacing: "-0.05em",
+            fontVariationSettings: '"opsz" 144, "SOFT" 100, "WONK" 1',
           }}
         >
-          makerlab
-        </span>
+          {/* Line 1 — "maker" bleeds off the viewport edges */}
+          <div
+            style={{
+              fontSize: "clamp(10rem, 48vw, 72rem)",
+              lineHeight: 0.78,
+              background:
+                "linear-gradient(90deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              marginBottom: "-0.16em",
+            }}
+          >
+            maker
+          </div>
+          {/* Line 2 — "lab" folds under, slightly offset right */}
+          <div
+            style={{
+              fontSize: "clamp(6rem, 30vw, 44rem)",
+              lineHeight: 0.78,
+              marginTop: "-0.05em",
+              marginLeft: "18%",
+              background:
+                "linear-gradient(90deg, #3cbf1a 0%, #14c9a0 34%, #10b8c9 66%, #00a5e0 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              paddingBottom: "0.08em",
+            }}
+          >
+            lab
+          </div>
+        </div>
       </div>
 
       {/* Cute lil tagline */}
