@@ -58,7 +58,7 @@ export default async function ProjectPage({
     image: `${site.url}${project.image}`,
     creator: { "@type": "Organization", name: site.name, url: site.url },
     keywords: project.tags.join(", "),
-    sameAs: [project.href],
+    ...(project.href ? { sameAs: [project.href] } : {}),
   };
 
   return (
@@ -123,14 +123,20 @@ export default async function ProjectPage({
             </p>
           </div>
           <div className="col-span-12 md:col-span-3 md:col-start-10 flex flex-col gap-3 text-[11px] uppercase tracking-[0.18em]">
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              className="border-b border-[var(--ink)] pb-2 hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
-            >
-              → Visit project
-            </a>
+            {project.href ? (
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                className="border-b border-[var(--ink)] pb-2 hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
+              >
+                → Visit project
+              </a>
+            ) : (
+              <p className="border-b border-[var(--ink)]/30 pb-2 text-[var(--ink)]/50">
+                No live home
+              </p>
+            )}
             {project.sponsor && project.sponsorUrl && (
               <a
                 href={project.sponsorUrl}

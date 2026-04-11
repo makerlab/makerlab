@@ -4,7 +4,8 @@ export type Project = {
   tagline: string;
   tags: string[];
   image: string;
-  href: string;
+  /** External link to the project. Optional — some projects have no live home. */
+  href?: string;
   sponsor?: string;
   sponsorUrl?: string;
 };
@@ -42,7 +43,7 @@ export const projects: Project[] = [
     tagline: "Design thinking for human-scale architecture.",
     tags: ["design", "philosophy"],
     image: "/assets/humanscale.jpg",
-    href: "https://human.scale",
+    // Original site (human.scale) is gone with no Wayback snapshot.
   },
   {
     slug: "lifecards",
@@ -66,7 +67,8 @@ export const projects: Project[] = [
     tagline: "Token-gated Discord bot.",
     tags: ["crypto"],
     image: "/assets/starrybot.png",
-    href: "https://starrybot.xyz",
+    // Original site (starrybot.xyz) is gone — linking to Wayback snapshot.
+    href: "https://web.archive.org/web/2025/https://www.starrybot.xyz/",
   },
   {
     slug: "lemonopoly",

@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Crystal } from "@/components/Decoration";
+
+export const metadata: Metadata = {
+  title: "Mis-filed",
+  description:
+    "The page you're looking for has been moved, renamed, or was never there to begin with. Everything gets mis-filed eventually.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
