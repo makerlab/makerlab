@@ -100,25 +100,24 @@ export function FooterWordmark() {
         <span>2006 — 2026</span>
       </div>
 
-      {/* Giant gradient wordmark — full word, cropped slightly at the bottom */}
+      {/* Giant gradient wordmark — fills the page, slight crop at edges
+          and bottom (descenders) on purpose as a cover-mark effect */}
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden w-full"
         style={{ lineHeight: 0.78 }}
       >
         <span
           aria-hidden
           className="block font-display font-normal leading-[0.78] text-center whitespace-nowrap"
           style={{
-            fontSize: "clamp(4.5rem, 17vw, 18rem)",
-            letterSpacing: "-0.045em",
+            fontSize: "clamp(5rem, 24vw, 36rem)",
+            letterSpacing: "-0.05em",
             background:
               "linear-gradient(90deg, #ff6a1a 0%, #ffa52b 12%, #d4c32a 24%, #8fc520 36%, #3cbf1a 50%, #14c9a0 66%, #10b8c9 80%, #00a5e0 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
-            marginBottom: "-0.12em",
-            paddingLeft: "0.04em",
-            paddingRight: "0.04em",
+            marginBottom: "-0.14em",
             fontVariationSettings: '"opsz" 144, "SOFT" 100, "WONK" 1',
             fontStyle: "italic",
           }}
