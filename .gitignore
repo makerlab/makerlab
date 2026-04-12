@@ -8,3 +8,10 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .dns-backup-*.json
+
+# Scratch / working reference docs that live in the repo root but
+# aren't part of the site itself (Midjourney prompt drafts, todo
+# lists, etc.). Stay local only.
+/image-prompts.md
+/SESSION-NOTES.md
+/scratch.md
