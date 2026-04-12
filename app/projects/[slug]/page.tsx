@@ -62,7 +62,7 @@ export default async function ProjectPage({
   };
 
   return (
-    <article className="px-6 sm:px-10 pt-8 pb-24">
+    <article className="px-6 sm:px-10 pt-8 pb-24" style={{ overflowX: "clip" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -76,11 +76,8 @@ export default async function ProjectPage({
 
         <header className="grid grid-cols-12 gap-6 mb-14">
           <div className="col-span-12 md:col-span-2">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
-              № {String(index + 1).padStart(2, "0")}
-            </p>
             {project.year && (
-              <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
                 {project.year}
               </p>
             )}
@@ -89,57 +86,91 @@ export default async function ProjectPage({
             </p>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <h1 className="font-display text-[16vw] md:text-[12vw] lg:text-[11rem] leading-[0.85] tracking-[-0.03em]">
-              <span className="italic">{project.name.split(" ")[0]}</span>
-              {project.name.split(" ").length > 1 && (
-                <>
-                  <br />
-                  {project.name.split(" ").slice(1).join(" ")}
-                </>
-              )}
-            </h1>
+            {/* Gradient № then title on the same row. Number holds at
+                full size via flex: 0 0 auto. Title takes the leftover
+                flex space and wraps its text internally at full font
+                size — "Simulate" and "World" stack to two lines, etc.
+                Font size is never scaled down; only the box width
+                changes, so the text flows across multiple big lines
+                like a graphic-design poster. */}
+            <div className="relative flex items-baseline">
+              <span
+                aria-hidden
+                className="font-display select-none pointer-events-none whitespace-nowrap"
+                style={{
+                  flex: "0 0 auto",
+                  fontSize: "clamp(7rem, 17vw, 14rem)",
+                  fontStyle: "italic",
+                  fontVariationSettings:
+                    '"opsz" 144, "SOFT" 100, "WONK" 1',
+                  letterSpacing: "-0.025em",
+                  lineHeight: 0.85,
+                  background:
+                    "linear-gradient(95deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  paddingRight: "0.22em",
+                }}
+              >
+                №{String(index + 1).padStart(2, "0")}
+              </span>
+              <h1
+                className="relative z-10 italic font-display text-[13vw] md:text-[10vw] lg:text-[9rem] leading-[0.85] tracking-[-0.03em]"
+                style={{
+                  flex: "0 1 auto",
+                  minWidth: 0,
+                  marginLeft: "-0.04em",
+                }}
+              >
+                {project.name}
+              </h1>
+            </div>
             <p className="mt-8 max-w-2xl text-xl sm:text-2xl font-display-tight text-[var(--ink)]/80 leading-snug">
               {project.tagline}
             </p>
           </div>
         </header>
 
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-10 md:col-start-2">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)]">
+        {/* Content row — image is now inset inside the text column at
+            the top, rather than a full-width hero above the body. It
+            sits at the same column width as the description, so it
+            reads like an editorial figure embedded in an article
+            rather than a banner. */}
+        <div className="mt-12 grid grid-cols-12 gap-6">
+          <div className="hidden md:block col-span-2" />
+          <div className="col-span-12 md:col-span-7">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)] mb-10">
               <Image
                 src={project.image}
                 alt={project.name}
                 fill
-                sizes="(max-width: 1024px) 100vw, 1200px"
+                sizes="(max-width: 1024px) 100vw, 700px"
                 className="object-cover"
                 priority
               />
             </div>
-          </div>
-        </div>
 
-        <div className="mt-12 grid grid-cols-12 gap-6">
-          <div className="hidden md:block col-span-2" />
-          <div className="col-span-12 md:col-span-7 text-[16px] text-[var(--ink)]/85 leading-[1.7] font-display-tight">
-            {project.description && project.description.length > 0 ? (
-              <div className="space-y-5">
-                {project.description.map((para, i) => (
-                  <p key={i} className={i === 0 ? "dropcap" : undefined}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-            ) : (
-              <p className="italic text-[var(--ink)]/60">
-                {project.tagline}
-              </p>
-            )}
-            {project.credits && (
-              <p className="mt-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/55">
-                {project.credits}
-              </p>
-            )}
+            <div className="text-[16px] text-[var(--ink)]/85 leading-[1.7] font-display-tight">
+              {project.description && project.description.length > 0 ? (
+                <div className="space-y-5">
+                  {project.description.map((para, i) => (
+                    <p key={i} className={i === 0 ? "dropcap" : undefined}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="italic text-[var(--ink)]/60">
+                  {project.tagline}
+                </p>
+              )}
+              {project.credits && (
+                <p className="mt-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/55">
+                  {project.credits}
+                </p>
+              )}
+            </div>
           </div>
           <div className="col-span-12 md:col-span-2 md:col-start-10 flex flex-col gap-3 text-[11px] uppercase tracking-[0.18em]">
             {project.href ? (
