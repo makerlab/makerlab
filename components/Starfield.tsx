@@ -48,10 +48,10 @@ function generateStars(count: number, seed: number): Star[] {
     stars.push({
       top: rand() * 100,
       left: rand() * 100,
-      size: 3 + rand() * 9,            // 3–12px
+      size: 5 + rand() * 11,           // 5–16px (bumped from 3–12)
       delay: rand() * 6,               // 0–6s
       duration: 2.6 + rand() * 3.8,    // 2.6–6.4s
-      opacity: 0.3 + rand() * 0.55,    // 0.30–0.85
+      opacity: 0.4 + rand() * 0.55,    // 0.40–0.95 (floor bumped from 0.30)
       color: PALETTE[Math.floor(rand() * PALETTE.length)],
     });
   }
