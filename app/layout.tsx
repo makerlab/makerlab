@@ -64,8 +64,30 @@ export default function RootLayout({
     name: site.name,
     url: site.url,
     email: site.contact.primary,
-    sameAs: site.social.map((s) => s.href),
+    foundingDate: "2006",
+    founder: [
+      {
+        "@type": "Person",
+        name: "Paige Saez",
+        url: "https://paigesaez.com",
+      },
+      {
+        "@type": "Person",
+        name: "Anselm Hook",
+      },
+    ],
+    knowsAbout: [
+      "Agent-based modeling",
+      "Conversational AI",
+      "Civic simulation",
+      "Speculative design",
+      "Interactive art installation",
+      "Product engineering",
+      "Computational simulation",
+      "Visual search",
+    ],
     description: site.description,
+    sameAs: site.social.map((s) => s.href),
   };
 
   return (

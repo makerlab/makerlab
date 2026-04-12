@@ -1,8 +1,8 @@
 export const site = {
   name: "Makerlab",
-  title: "Makerlab — a twenty-year collaboration in speculative, experimental, and agentic systems",
+  title: "Makerlab — since 2006. A twenty-year collaboration of Paige Saez and Anselm Hook in speculative, experimental, and agentic systems.",
   description:
-    "Makerlab is the long collaboration of Paige Saez and Anselm Hook — two decades of speculative, experimental work threaded with AI and agentic systems. Civic simulations, conversational agents, place-based games, art installations, strange hardware, and the quiet infrastructure underneath other people's tools.",
+    "Since 2006, Makerlab is the long collaboration of Paige Saez and Anselm Hook — two decades of speculative, experimental work threaded with AI and agentic systems. Civic simulations, conversational agents, place-based games, art installations, strange hardware, and the quiet infrastructure underneath other people's tools.",
   url: "https://makerlab.com",
   twitter: "@makerlab",
   contact: {
