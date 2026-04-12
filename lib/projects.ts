@@ -10,6 +10,12 @@ export type Project = {
   sponsorUrl?: string;
   /** Year or year range, e.g. "2008" or "2024–present". */
   year?: string;
+  /**
+   * Longer lead-in shown on the /projects index — 1–2 sentences of real
+   * substance, more editorial than the tagline. Falls back to tagline when
+   * absent. Think "first sentence of the museum-placard copy."
+   */
+  leadIn?: string;
   /** Body paragraphs shown on the project page. Editorial voice — keep it real. */
   description?: string[];
   /** Short credits line, e.g. "With Ben Foote and John Wiseman". */
@@ -28,6 +34,8 @@ export const projects: Project[] = [
     sponsor: "@anselm",
     sponsorUrl: "https://twitter.com/anselm",
     year: "2024–present",
+    leadIn:
+      "A TypeScript simulation core for agent-based models — in the older NetLogo/MASON sense, not the LLM one. Several of our recent civic tools run on top of it.",
     description: [
       "Orbital is a small simulation core for the web — a declarative runtime for agent-based models, rewritten fresh in TypeScript. “Agent-based” here means the older scientific-computing sense: entities in a model, each with their own state, updating themselves over time. NetLogo and MASON as ancestors, not LangChain.",
       "We built it because we kept wanting the same thing and not finding it: a lightweight simulation framework that runs in a browser, handles thousands of agents without swallowing a server, and stays small enough to include as a dependency. The academic options were desktop-bound and Java-heavy. The enterprise ones were neither.",
@@ -68,6 +76,8 @@ export const projects: Project[] = [
     image: "/assets/lifecards.jpg",
     href: "https://github.com/makerlab/lifecards",
     year: "2023",
+    leadIn:
+      "Our own web layout engine. You write a tree of typed card objects in a JavaScript module; the runtime assembles the page at load time. No build step, no HTML authoring, no framework lock-in.",
     description: [
       "Lifecards is the engine underneath the old makerlab.com, and underneath a handful of other sites we've shipped over the years. It takes a different approach to web layout than most things: you write a tree of typed card objects as a plain JavaScript module, and the runtime assembles the page at load time. No build step, no templating language, no framework lock-in.",
       "The idea was that a page should be a scenegraph — the way a video game composes a scene — not a document. You describe the tree, the engine decides how to paint it. Content and presentation stay cleanly separated.",
@@ -148,6 +158,8 @@ export const projects: Project[] = [
     image: "/assets/imagewiki.jpg",
     href: "https://vimeo.com/2818525",
     year: "2008",
+    leadIn:
+      "A 2008 open-source experiment in visual search and image-as-interface — Ruby/Merb, six authors, BSD-licensed. Makerlab receipts on doing visual search before ML-based image understanding was the default.",
     description: [
       "ImageWiki was a 2008 experiment in visual information sharing — an open-source image-comparison and tagging tool, written in Ruby (Merb, if you remember Merb). The idea was that you could use real images as the primary unit of communication for a wiki: visual matching to find related material, rather than hyperlinks and text.",
       "Six of us built it: Paige Saez, Anselm Hook, Ben Foote, John Wiseman, Marlin Pohlman, Nick Brenner. BSD-licensed, hosted originally at imagewiki.org, and mentioned here mostly for the receipts — makerlab has been working on visual search and image-as-interface since well before ML-based image understanding was the default assumption.",
