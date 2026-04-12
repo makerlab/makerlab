@@ -117,19 +117,22 @@ export default async function ProjectPage({
                 aria-hidden
                 className="font-display select-none"
                 style={{
-                  fontSize: "clamp(8rem, 30vw, 26rem)",
+                  // Dropped clamp ceiling to keep content inside the
+                  // container after accounting for italic WONK right
+                  // overhang + generous right padding.
+                  fontSize: "clamp(5.5rem, 22vw, 18rem)",
                   fontStyle: "italic",
                   fontVariationSettings:
                     '"opsz" 144, "SOFT" 100, "WONK" 1',
-                  letterSpacing: "-0.04em",
+                  letterSpacing: "-0.025em",
                   lineHeight: 0.78,
                   background:
                     "linear-gradient(95deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
                   color: "transparent",
-                  paddingLeft: "0.04em",
-                  paddingRight: "0.04em",
+                  paddingLeft: "0.12em",
+                  paddingRight: "0.22em",
                 }}
               >
                 №{String(index + 1).padStart(2, "0")}
