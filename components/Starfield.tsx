@@ -56,13 +56,15 @@ type SizeClass = {
   opacityMax: number;
 };
 
-// Three size classes. Total ≈ 280 stars — enough to stay populated
-// when spread across a tall scrollable page. Small/dim/numerous in
-// back; larger/brighter/fewer in front.
+// Four size classes. Total ≈ 292 stars across a tall scrollable page.
+// Small/dim/numerous in back; larger/brighter/fewer in front. The
+// "standout" class is the handful of extra-big ones Paige loves —
+// occasional moments of "oh there's a big one" while scrolling.
 const SIZE_CLASSES: SizeClass[] = [
   { count: 140, sizeMin: 4,  sizeMax: 9,  opacityMin: 0.35, opacityMax: 0.7  }, // far
   { count: 100, sizeMin: 8,  sizeMax: 14, opacityMin: 0.5,  opacityMax: 0.85 }, // mid
   { count: 40,  sizeMin: 12, sizeMax: 20, opacityMin: 0.6,  opacityMax: 0.95 }, // near
+  { count: 12,  sizeMin: 22, sizeMax: 34, opacityMin: 0.7,  opacityMax: 1.0  }, // standout
 ];
 
 function generateStars(): Star[] {
