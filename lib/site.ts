@@ -4,7 +4,6 @@ export const site = {
   description:
     "Makerlab is a full stack interactive design and build collective. We do product design, prototyping, mobile and web development, and rapid hardware prototyping.",
   url: "https://makerlab.com",
-  ogImage: "/og.png",
   twitter: "@makerlab",
   contact: {
     primary: "us@makerlab.com",

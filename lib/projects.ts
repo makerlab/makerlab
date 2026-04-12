@@ -6,8 +6,6 @@ export type Project = {
   image: string;
   /** External link to the project. Optional — some projects have no live home. */
   href?: string;
-  sponsor?: string;
-  sponsorUrl?: string;
   /** Year or year range, e.g. "2008" or "2024–present". */
   year?: string;
   /**
@@ -31,8 +29,6 @@ export const projects: Project[] = [
     tags: ["tool", "sim", "agents"],
     image: "/assets/orbital.jpg",
     href: "https://orbital.foundation",
-    sponsor: "@anselm",
-    sponsorUrl: "https://twitter.com/anselm",
     year: "2024–present",
     leadIn:
       "A TypeScript simulation core for agent-based models — in the older NetLogo/MASON sense, not the LLM one. Several of our recent civic tools run on top of it.",
