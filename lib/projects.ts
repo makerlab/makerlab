@@ -156,6 +156,23 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "weathercards",
+    name: "Weather Cards",
+    tagline:
+      "A study in rich-visual infographics — cities rendered as single dense weather scenes instead of minimalist dashboards.",
+    tags: ["design", "data", "infographic"],
+    image: "/assets/weathercards.jpg",
+    href: "https://makerlab.github.io/weathercards/",
+    year: "2022",
+    leadIn:
+      "Each card is a city's current weather rendered as a whole scene: sky gradient, drifting clouds, sun and moon positions, regional landmarks, seasonal flourishes. A quiet push in the opposite direction from minimalist dashboards.",
+    description: [
+      "Weather Cards is a small study in the opposite direction from the minimalist-dashboard default. What if a weather display tried to be legible and dense and emotionally specific, all at once? Each card is a city, and each card is a whole visual scene — sky gradient driven by time of day and sun elevation, drifting clouds that scale with wind and coverage, sun and moon positions, starfields on night cards, biome-aware ground, iconic landmark silhouettes, and seasonal flourishes like cherry blossoms in Tokyo or northern lights in Reykjavik.",
+      "The underlying bet is one Anselm keeps coming back to: modern interfaces have over-corrected toward minimalism, and the visual cortex is capable of parsing much richer compositions than current design culture gives it credit for. Dense infographics as a medium, not a problem to be cleaned up.",
+      "Real-time weather from Open-Meteo, hand-tuned SVG layers, React + Vite under the hood. One of the more modest projects in the archive — more a study than a full tool — but the kind of study that keeps informing later work.",
+    ],
+  },
+  {
     slug: "insidemaps",
     name: "InsideMaps",
     tagline: "3D reconstruction of modern interiors.",
