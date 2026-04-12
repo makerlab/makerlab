@@ -31,14 +31,24 @@ If you touched anything non-trivial, also run `npm run lint`.
 
 ## Parallel sessions
 
-There are often multiple Claude sessions working on this repo at the same time (different windows, same or different humans driving). Before editing:
+There are often multiple Claude sessions working on this repo at the same time (different windows, same or different humans driving). Assume another session is active until proven otherwise.
+
+**Before editing**, always sync:
 
 ```sh
 git fetch origin main && git pull --ff-only
 git log --oneline -10
 ```
 
-Don't assume your working tree matches `origin`. If you see unfamiliar commits in the log, read them before you edit files they touched.
+If you see unfamiliar commits in the log, read them before you touch files they changed.
+
+**Do not check out a branch that isn't yours.** Feature branches belong to whoever opened them. Branch names like `content/*`, `design/*`, `fix/*`, `docs/*` are active workspaces for *one* session. Never run `git checkout <someone-else's-branch>` — even for a quick look. Use `git log <branch>`, `git show <branch>:path`, or open the PR in the browser instead. Switching branches stomps the other session's uncommitted working tree.
+
+**Commit your own work early, even as WIP.** If you're mid-edit and step away, `git commit -m "wip"` before you stop. Uncommitted working-tree changes are the first thing that gets lost when a parallel session (or a branch switch, or a `git reset`) disturbs the repo. A WIP commit can always be amended or squashed before the PR lands; lost work can't be recovered.
+
+**If your branch gets stomped**, check `git reflog` — recent HEAD positions often survive even when branches get reset or checked out over. `git stash list` is the other place to look before giving up.
+
+**If you need to make a change that's near or related to another session's work**, branch off `main` (not off their branch), make your change, and PR it. Merge conflicts at PR time are fine; live-editing each other's working tree isn't.
 
 ## Commit messages
 
