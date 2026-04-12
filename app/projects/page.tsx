@@ -20,7 +20,7 @@ export default function ProjectsPage() {
           </p>
           <div className="col-span-12 md:col-span-10">
             <h1 className="font-display text-[14vw] md:text-[11vw] lg:text-[10rem] leading-[0.88] tracking-[-0.03em]">
-              <span className="italic">Everything.</span>
+              <span className="italic">Almost</span> Everything.
               <br />
               Roughly chronological.
             </h1>

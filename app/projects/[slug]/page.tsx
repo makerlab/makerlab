@@ -79,6 +79,11 @@ export default async function ProjectPage({
             <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
               № {String(index + 1).padStart(2, "0")}
             </p>
+            {project.year && (
+              <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
+                {project.year}
+              </p>
+            )}
             <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/40">
               {project.tags.join(" · ")}
             </p>
@@ -116,13 +121,27 @@ export default async function ProjectPage({
 
         <div className="mt-12 grid grid-cols-12 gap-6">
           <div className="hidden md:block col-span-2" />
-          <div className="col-span-12 md:col-span-6 text-[15px] text-[var(--ink)]/80 leading-relaxed">
-            <p>
-              {project.tagline} Visit the project to see more, try it, or read
-              the source where one is available.
-            </p>
+          <div className="col-span-12 md:col-span-7 text-[16px] text-[var(--ink)]/85 leading-[1.7] font-display-tight">
+            {project.description && project.description.length > 0 ? (
+              <div className="space-y-5">
+                {project.description.map((para, i) => (
+                  <p key={i} className={i === 0 ? "dropcap" : undefined}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p className="italic text-[var(--ink)]/60">
+                {project.tagline}
+              </p>
+            )}
+            {project.credits && (
+              <p className="mt-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/55">
+                {project.credits}
+              </p>
+            )}
           </div>
-          <div className="col-span-12 md:col-span-3 md:col-start-10 flex flex-col gap-3 text-[11px] uppercase tracking-[0.18em]">
+          <div className="col-span-12 md:col-span-2 md:col-start-10 flex flex-col gap-3 text-[11px] uppercase tracking-[0.18em]">
             {project.href ? (
               <a
                 href={project.href}
