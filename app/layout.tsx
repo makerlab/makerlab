@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/lib/site";
 import { FooterWordmark } from "@/components/Decoration";
+import { Starfield } from "@/components/Starfield";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -86,6 +87,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Starfield />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-[var(--ink)] focus:text-[var(--paper)] focus:px-3 focus:py-2 focus:z-50"

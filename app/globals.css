@@ -118,8 +118,34 @@ a {
   opacity: 0.2;
 }
 
-/* z-index above the grain */
+/* z-index above the grain + starfield */
 main, header, footer {
   position: relative;
   z-index: 2;
+}
+
+/* Twinkling starfield — gentle pulse on opacity + scale.
+   Each star has its own duration/delay via inline style so they
+   twinkle asynchronously. */
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(0.55);
+    filter: brightness(0.85);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+}
+.starfield-star {
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+@media (prefers-reduced-motion: reduce) {
+  .starfield-star {
+    animation: none;
+  }
 }
