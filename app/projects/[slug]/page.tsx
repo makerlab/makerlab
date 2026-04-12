@@ -133,43 +133,45 @@ export default async function ProjectPage({
           </div>
         </div>
 
-        {/* Image hero — 16/10 plate below the frontispiece */}
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-10 md:col-start-2">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)]">
+        {/* Content row — image is now inset inside the text column at
+            the top, rather than a full-width hero above the body. It
+            sits at the same column width as the description, so it
+            reads like an editorial figure embedded in an article
+            rather than a banner. */}
+        <div className="mt-12 grid grid-cols-12 gap-6">
+          <div className="hidden md:block col-span-2" />
+          <div className="col-span-12 md:col-span-7">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)] mb-10">
               <Image
                 src={project.image}
                 alt={project.name}
                 fill
-                sizes="(max-width: 1024px) 100vw, 1200px"
+                sizes="(max-width: 1024px) 100vw, 700px"
                 className="object-cover"
                 priority
               />
             </div>
-          </div>
-        </div>
 
-        <div className="mt-12 grid grid-cols-12 gap-6">
-          <div className="hidden md:block col-span-2" />
-          <div className="col-span-12 md:col-span-7 text-[16px] text-[var(--ink)]/85 leading-[1.7] font-display-tight">
-            {project.description && project.description.length > 0 ? (
-              <div className="space-y-5">
-                {project.description.map((para, i) => (
-                  <p key={i} className={i === 0 ? "dropcap" : undefined}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-            ) : (
-              <p className="italic text-[var(--ink)]/60">
-                {project.tagline}
-              </p>
-            )}
-            {project.credits && (
-              <p className="mt-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/55">
-                {project.credits}
-              </p>
-            )}
+            <div className="text-[16px] text-[var(--ink)]/85 leading-[1.7] font-display-tight">
+              {project.description && project.description.length > 0 ? (
+                <div className="space-y-5">
+                  {project.description.map((para, i) => (
+                    <p key={i} className={i === 0 ? "dropcap" : undefined}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="italic text-[var(--ink)]/60">
+                  {project.tagline}
+                </p>
+              )}
+              {project.credits && (
+                <p className="mt-8 text-[11px] uppercase tracking-[0.18em] text-[var(--ink)]/55">
+                  {project.credits}
+                </p>
+              )}
+            </div>
           </div>
           <div className="col-span-12 md:col-span-2 md:col-start-10 flex flex-col gap-3 text-[11px] uppercase tracking-[0.18em]">
             {project.href ? (
