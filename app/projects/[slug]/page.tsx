@@ -187,16 +187,6 @@ export default async function ProjectPage({
                 No live home
               </p>
             )}
-            {project.sponsor && project.sponsorUrl && (
-              <a
-                href={project.sponsorUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--ink)]/60 hover:text-[var(--accent)] normal-case tracking-normal text-[12px]"
-              >
-                By {project.sponsor}
-              </a>
-            )}
           </div>
         </div>
 
