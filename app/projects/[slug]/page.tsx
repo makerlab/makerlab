@@ -62,7 +62,7 @@ export default async function ProjectPage({
   };
 
   return (
-    <article className="px-6 sm:px-10 pt-8 pb-24">
+    <article className="px-6 sm:px-10 pt-8 pb-24" style={{ overflowX: "clip" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -86,38 +86,31 @@ export default async function ProjectPage({
             </p>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <h1 className="font-display text-[16vw] md:text-[12vw] lg:text-[11rem] leading-[0.85] tracking-[-0.03em]">
-              <span className="italic">{project.name.split(" ")[0]}</span>
-              {project.name.split(" ").length > 1 && (
-                <>
-                  <br />
-                  {project.name.split(" ").slice(1).join(" ")}
-                </>
-              )}
-            </h1>
-            <p className="mt-8 max-w-2xl text-xl sm:text-2xl font-display-tight text-[var(--ink)]/80 leading-snug">
-              {project.tagline}
-            </p>
-          </div>
-        </header>
-
-        {/* Typographic frontispiece — giant gradient № rendered in the
-            same treatment as the footer wordmark. Sits above the image
-            as an editorial cover moment. Horizontal 16/5 band so the
-            number reads big without competing with the image hero. */}
-        <div className="grid grid-cols-12 gap-6 mb-6">
-          <div className="col-span-12 md:col-span-10 md:col-start-2">
-            <div className="relative aspect-[16/5] overflow-hidden border-y border-[var(--ink)]/20 flex items-center justify-center">
+            {/* Title + gradient № on the same line. Flex row with
+                whitespace-nowrap lets them sit inline. The № has a
+                negative left margin pulling it into the title, and
+                flex-shrink: 0 keeps it at full size, so on wider
+                project names the № bleeds off the right edge of the
+                container — <article> has overflow-x: clip so this
+                doesn't produce a horizontal scrollbar. */}
+            <div className="relative flex items-baseline whitespace-nowrap">
+              <h1
+                className="relative z-10 italic font-display text-[13vw] md:text-[10vw] lg:text-[9rem] leading-[0.85] tracking-[-0.03em]"
+              >
+                {project.name}
+              </h1>
               <span
                 aria-hidden
-                className="font-display select-none"
+                className="font-display select-none pointer-events-none"
                 style={{
-                  fontSize: "clamp(5.5rem, 22vw, 18rem)",
+                  flex: "0 0 auto",
+                  marginLeft: "-0.06em",
+                  fontSize: "clamp(7rem, 17vw, 14rem)",
                   fontStyle: "italic",
                   fontVariationSettings:
                     '"opsz" 144, "SOFT" 100, "WONK" 1',
                   letterSpacing: "-0.025em",
-                  lineHeight: 0.78,
+                  lineHeight: 0.85,
                   background:
                     "linear-gradient(95deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
                   WebkitBackgroundClip: "text",
@@ -130,8 +123,11 @@ export default async function ProjectPage({
                 №{String(index + 1).padStart(2, "0")}
               </span>
             </div>
+            <p className="mt-8 max-w-2xl text-xl sm:text-2xl font-display-tight text-[var(--ink)]/80 leading-snug">
+              {project.tagline}
+            </p>
           </div>
-        </div>
+        </header>
 
         {/* Content row — image is now inset inside the text column at
             the top, rather than a full-width hero above the body. It
