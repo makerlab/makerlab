@@ -1,7 +1,7 @@
 export const aboutSections = [
   {
     heading: "Who we are",
-    body: "Makerlab is a full-stack interactive design and build collective run by Paige Saez and Anselm Hook. We started it in 2006 as an excuse for two curious people to make things together, and we've been doing it ever since — mostly for the love of it, sometimes for hire.",
+    body: "Makerlab is a twenty-year collaboration between Paige Saez and Anselm Hook — two decades of speculative, experimental work, and two decades of AI and agentic systems threaded all the way through. Civic simulations, conversational agents, place-based games, art installations, strange hardware, visual search, and the quiet infrastructure underneath other people's tools. Some of it new (LLMs, voice pipelines, conversational avatars). Some of it old (agent-based modeling, image-as-interface, computational simulation — before either was the default assumption). Most of it in the overlap where they meet.",
   },
   {
     heading: "Twenty years",
