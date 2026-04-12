@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ export default function ProjectsPage() {
                 <span className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--ink)]/50 pt-3">
                   № {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="col-span-10 md:col-span-5">
+                <div className="col-span-10 md:col-span-8">
                   <h2 className="font-display text-3xl sm:text-4xl md:text-5xl tracking-tight group-hover:text-[var(--accent)] group-hover:italic transition-[color,font-style] duration-300">
                     {p.name}
                   </h2>
@@ -54,8 +53,8 @@ export default function ProjectsPage() {
                   <p
                     className={
                       p.leadIn
-                        ? "mt-3 font-display-tight text-[15px] sm:text-[16px] leading-[1.55] text-[var(--ink)]/80"
-                        : "mt-2 text-[13px] text-[var(--ink)]/70"
+                        ? "mt-3 font-display-tight text-[15px] sm:text-[16px] leading-[1.55] text-[var(--ink)]/80 max-w-2xl"
+                        : "mt-2 text-[13px] text-[var(--ink)]/70 max-w-2xl"
                     }
                   >
                     {p.leadIn ?? p.tagline}
@@ -70,17 +69,6 @@ export default function ProjectsPage() {
                       {t}
                     </span>
                   ))}
-                </div>
-                <div className="hidden md:block col-span-3 pt-2">
-                  <div className="relative aspect-[5/3] overflow-hidden rounded-[2px] border border-[var(--ink)]/10 opacity-70 group-hover:opacity-100 transition-opacity">
-                    <Image
-                      src={p.image}
-                      alt=""
-                      fill
-                      sizes="300px"
-                      className="object-cover"
-                    />
-                  </div>
                 </div>
               </Link>
             </li>

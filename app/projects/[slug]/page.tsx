@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/lib/projects";
@@ -17,6 +16,11 @@ export async function generateMetadata(
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  // NB: we intentionally don't override openGraph.images here. The root
+  // layout's metadata sets the site-wide OG image (the generated
+  // typographic card at /opengraph-image), and per-project pages inherit
+  // it. That keeps social previews cohesive and brand-consistent without
+  // needing per-project imagery.
   return {
     title: project.name,
     description: project.tagline,
@@ -25,13 +29,11 @@ export async function generateMetadata(
       title: `${project.name} · ${site.name}`,
       description: project.tagline,
       url: `${site.url}/projects/${project.slug}`,
-      images: [{ url: project.image, alt: project.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.name} · ${site.name}`,
       description: project.tagline,
-      images: [project.image],
     },
   };
 }
@@ -55,7 +57,6 @@ export default async function ProjectPage({
     name: project.name,
     description: project.tagline,
     url: `${site.url}/projects/${project.slug}`,
-    image: `${site.url}${project.image}`,
     creator: { "@type": "Organization", name: site.name, url: site.url },
     keywords: project.tags.join(", "),
     ...(project.href ? { sameAs: [project.href] } : {}),
@@ -104,17 +105,35 @@ export default async function ProjectPage({
           </div>
         </header>
 
+        {/* Frontispiece — a typographic "cover moment" where the hero
+            image used to live. Each project's number rendered huge in
+            italic Fraunces with the 2006 brand gradient. Cohesive across
+            all projects (same treatment), unique per project (different
+            number). No images, no image work. */}
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-10 md:col-start-2">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)]">
-              <Image
-                src={project.image}
-                alt={project.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 1200px"
-                className="object-cover"
-                priority
-              />
+            <div className="relative aspect-[16/10] overflow-hidden border-y border-[var(--ink)]/20 flex items-center justify-center">
+              <span
+                aria-hidden
+                className="font-display select-none"
+                style={{
+                  fontSize: "clamp(8rem, 30vw, 26rem)",
+                  fontStyle: "italic",
+                  fontVariationSettings:
+                    '"opsz" 144, "SOFT" 100, "WONK" 1',
+                  letterSpacing: "-0.04em",
+                  lineHeight: 0.78,
+                  background:
+                    "linear-gradient(95deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  paddingLeft: "0.04em",
+                  paddingRight: "0.04em",
+                }}
+              >
+                №{String(index + 1).padStart(2, "0")}
+              </span>
             </div>
           </div>
         </div>
