@@ -86,17 +86,17 @@ export default async function ProjectPage({
             </p>
           </div>
           <div className="col-span-12 md:col-span-10">
-            {/* Gradient № then title on the same line. Number leads,
-                title follows with a small negative left margin pulling
-                it into the collision zone. Flex row with nowrap and
-                flex: 0 0 auto on the number keeps it at full size, so
-                on wider project names the title bleeds off the right
-                edge of the container — <article> has overflow-x: clip
-                so this doesn't produce a horizontal scrollbar. */}
-            <div className="relative flex items-baseline whitespace-nowrap">
+            {/* Gradient № then title on the same row. Number holds at
+                full size via flex: 0 0 auto. Title takes the leftover
+                flex space and wraps its text internally at full font
+                size — "Simulate" and "World" stack to two lines, etc.
+                Font size is never scaled down; only the box width
+                changes, so the text flows across multiple big lines
+                like a graphic-design poster. */}
+            <div className="relative flex items-baseline">
               <span
                 aria-hidden
-                className="font-display select-none pointer-events-none"
+                className="font-display select-none pointer-events-none whitespace-nowrap"
                 style={{
                   flex: "0 0 auto",
                   fontSize: "clamp(7rem, 17vw, 14rem)",
@@ -117,7 +117,11 @@ export default async function ProjectPage({
               </span>
               <h1
                 className="relative z-10 italic font-display text-[13vw] md:text-[10vw] lg:text-[9rem] leading-[0.85] tracking-[-0.03em]"
-                style={{ marginLeft: "-0.04em" }}
+                style={{
+                  flex: "0 1 auto",
+                  minWidth: 0,
+                  marginLeft: "-0.04em",
+                }}
               >
                 {project.name}
               </h1>
