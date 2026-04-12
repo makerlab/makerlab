@@ -43,10 +43,11 @@ export default function HomePage() {
             </h1>
             <div className="mt-10 grid grid-cols-12 gap-6">
               <p className="col-span-12 md:col-span-6 md:col-start-5 text-[15px] text-[var(--ink)]/80 leading-relaxed">
-                Makerlab is a full-stack interactive design and build
-                collective. Twenty years in, we're still prototyping tools,
-                games, simulations, hardware, and the occasional movie —
-                mostly for the love of it, sometimes for hire.
+                Makerlab is the long collaboration of Paige Saez and Anselm
+                Hook. Twenty years in, we're still building strange things
+                — civic simulations, conversational agents, place-based
+                games, art installations, hardware, and the quiet tools
+                underneath other people's work.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.2em]">
