@@ -31,6 +31,8 @@ body {
   color: var(--ink);
   /* subtle paper grain */
   background-attachment: fixed;
+  /* anchor absolute children (Starfield) to the full document */
+  position: relative;
 }
 
 body::before {
@@ -124,17 +126,20 @@ main, header, footer {
   z-index: 2;
 }
 
-/* Twinkling starfield — gentle pulse on opacity + scale.
-   Each star has its own duration/delay via inline style so they
-   twinkle asynchronously. */
+/* Twinkling starfield — each star pulses on scale + brightness with
+   its own duration/delay so the field breathes asynchronously. The
+   pulse is deliberately pronounced: 0.4→1.3 scale swing, bright
+   filter boost — enough to clearly read as "motion" and not "dust
+   on my screen". Stars live inside an absolute-positioned wrapper
+   so they scroll with page content, like a night sky you move past. */
 @keyframes twinkle {
   0%, 100% {
-    transform: scale(0.55);
-    filter: brightness(0.85);
+    transform: scale(0.4);
+    filter: brightness(0.6);
   }
   50% {
-    transform: scale(1.1);
-    filter: brightness(1.2);
+    transform: scale(1.3);
+    filter: brightness(1.5);
   }
 }
 .starfield-star {

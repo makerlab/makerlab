@@ -1,7 +1,14 @@
-// Starfield — a fixed, decorative layer of softly-pulsing stars behind
-// all content. Rendered server-side with deterministic positions so
-// SSR matches the client exactly (no hydration flicker). Pointer-events
-// disabled, aria-hidden, won't interfere with clicks or screen readers.
+// Starfield — a decorative layer of softly-pulsing stars that live
+// BEHIND the page content and scroll WITH it (so you move past them
+// like viewing a night sky, rather than having them pinned to the
+// viewport).
+//
+// Rendered server-side with deterministic positions so SSR matches the
+// client exactly (no hydration flicker). Pointer-events disabled,
+// aria-hidden, won't interfere with clicks or screen readers.
+//
+// Three size classes (small/mid/big) give visual depth without
+// animated parallax — the scroll motion itself is enough to sell it.
 //
 // Colors are pulled from the original 2006 Makerlab brand gradient so
 // the sky reads as "makerlab confetti" rather than generic twinkles.
@@ -41,31 +48,53 @@ const PALETTE = [
   "#00a5e0", // sky blue
 ];
 
-function generateStars(count: number, seed: number): Star[] {
-  const rand = makeRand(seed);
+type SizeClass = {
+  count: number;
+  sizeMin: number;
+  sizeMax: number;
+  opacityMin: number;
+  opacityMax: number;
+};
+
+// Three size classes. Total ≈ 280 stars — enough to stay populated
+// when spread across a tall scrollable page. Small/dim/numerous in
+// back; larger/brighter/fewer in front.
+const SIZE_CLASSES: SizeClass[] = [
+  { count: 140, sizeMin: 4,  sizeMax: 9,  opacityMin: 0.35, opacityMax: 0.7  }, // far
+  { count: 100, sizeMin: 8,  sizeMax: 14, opacityMin: 0.5,  opacityMax: 0.85 }, // mid
+  { count: 40,  sizeMin: 12, sizeMax: 20, opacityMin: 0.6,  opacityMax: 0.95 }, // near
+];
+
+function generateStars(): Star[] {
+  const rand = makeRand(20260411);
   const stars: Star[] = [];
-  for (let i = 0; i < count; i++) {
-    stars.push({
-      top: rand() * 100,
-      left: rand() * 100,
-      size: 5 + rand() * 11,           // 5–16px (bumped from 3–12)
-      delay: rand() * 6,               // 0–6s
-      duration: 2.6 + rand() * 3.8,    // 2.6–6.4s
-      opacity: 0.4 + rand() * 0.55,    // 0.40–0.95 (floor bumped from 0.30)
-      color: PALETTE[Math.floor(rand() * PALETTE.length)],
-    });
+  for (const cls of SIZE_CLASSES) {
+    for (let i = 0; i < cls.count; i++) {
+      stars.push({
+        top: rand() * 100,                                         // % of full page height
+        left: rand() * 100,                                        // % of viewport width
+        size: cls.sizeMin + rand() * (cls.sizeMax - cls.sizeMin),
+        // Faster individual pulse — 1.2–3s — so each star visibly
+        // twinkles rather than slowly breathing.
+        delay: rand() * 3,
+        duration: 1.2 + rand() * 1.8,
+        opacity:
+          cls.opacityMin + rand() * (cls.opacityMax - cls.opacityMin),
+        color: PALETTE[Math.floor(rand() * PALETTE.length)],
+      });
+    }
   }
   return stars;
 }
 
 // Generated once at module load. Same array every render.
-const STARS = generateStars(90, 20260411);
+const STARS = generateStars();
 
 export function Starfield() {
   return (
     <div
       aria-hidden
-      className="starfield pointer-events-none fixed inset-0 z-[1] overflow-hidden"
+      className="starfield pointer-events-none absolute inset-0 z-[1] overflow-hidden"
     >
       {STARS.map((s, i) => (
         <svg
