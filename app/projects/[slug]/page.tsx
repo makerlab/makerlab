@@ -76,11 +76,8 @@ export default async function ProjectPage({
 
         <header className="grid grid-cols-12 gap-6 mb-14">
           <div className="col-span-12 md:col-span-2">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
-              № {String(index + 1).padStart(2, "0")}
-            </p>
             {project.year && (
-              <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink)]/60">
                 {project.year}
               </p>
             )}
@@ -104,6 +101,39 @@ export default async function ProjectPage({
           </div>
         </header>
 
+        {/* Typographic frontispiece — giant gradient № rendered in the
+            same treatment as the footer wordmark. Sits above the image
+            as an editorial cover moment. Horizontal 16/5 band so the
+            number reads big without competing with the image hero. */}
+        <div className="grid grid-cols-12 gap-6 mb-6">
+          <div className="col-span-12 md:col-span-10 md:col-start-2">
+            <div className="relative aspect-[16/5] overflow-hidden border-y border-[var(--ink)]/20 flex items-center justify-center">
+              <span
+                aria-hidden
+                className="font-display select-none"
+                style={{
+                  fontSize: "clamp(5.5rem, 22vw, 18rem)",
+                  fontStyle: "italic",
+                  fontVariationSettings:
+                    '"opsz" 144, "SOFT" 100, "WONK" 1',
+                  letterSpacing: "-0.025em",
+                  lineHeight: 0.78,
+                  background:
+                    "linear-gradient(95deg, #ff6a1a 0%, #ffa52b 14%, #d4c32a 28%, #8fc520 44%, #3cbf1a 62%, #14c9a0 82%, #10b8c9 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  paddingLeft: "0.12em",
+                  paddingRight: "0.22em",
+                }}
+              >
+                №{String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Image hero — 16/10 plate below the frontispiece */}
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-10 md:col-start-2">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-[var(--ink)]/15 bg-[var(--paper-deep)]">
